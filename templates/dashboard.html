@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TinySwallow Dashboard</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+
+<body>
+  <div class="wrap">
+    <header class="top">
+      <h1>TinySwallow / ESP32 Dashboard</h1>
+      <div class="badges">
+        <span id="badge-auto" class="badge">AUTO: OFF</span>
+        <span id="badge-cone" class="badge">CONE: OFF</span>
+        <span id="badge-cmd" class="badge">CMD: -</span>
+      </div>
+    </header>
+
+    <section class="grid">
+      <div class="panel">
+        <h2>Camera</h2>
+        <img id="video" src="/video" alt="video" />
+        <div class="row">
+          <label><input type="checkbox" id="reverse" checked> Reverse(180°)</label>
+        </div>
+        <p class="hint">WASDで手動操作（AUTOがOFFの時）</p>
+      </div>
+
+      <div class="panel">
+        <h2>Controls</h2>
+        <div class="row">
+          <button id="autoOn">自動運転 ON</button>
+          <button id="autoOff">自動運転 OFF</button>
+          <button id="stop">STOP</button>
+        </div>
+
+        <div class="row">
+          <button id="coneOn">コーン検出 ON</button>
+          <button id="coneOff">コーン検出 OFF</button>
+        </div>
+
+        <div class="row">
+          <button class="cmd" data-cmd="W">W(前進)</button>
+          <button class="cmd" data-cmd="S">S(後退)</button>
+          <button class="cmd" data-cmd="A">A(左)</button>
+          <button class="cmd" data-cmd="D">D(右)</button>
+          <button class="cmd" data-cmd="M">M(回転)</button>
+        </div>
+
+        <h3>TinySwallowを用いた日本語の指示(β版)</h3>
+        <textarea id="nl" placeholder="例：自動運転オン。椅子を見つけたら近づいて。"></textarea>
+        <div class="row">
+          <button id="sendNl">送信</button>
+        </div>
+
+        <h3>Status</h3>
+        <pre id="status">-</pre>
+      </div>
+    </section>
+
+    <section class="grid">
+      <div class="panel">
+        <h2>Telemetry</h2>
+      
+        <div class="dates">
+          <div>
+            <p>温度:</p>
+            <p id="temp"></p>
+          </div>
+          <div>
+            <p>湿度:</p>
+            <p id="humid"></p>
+          </div>
+          <div>
+            <p>気圧:</p>
+            <p id="pa"></p>
+          </div>
+
+        </div>
+      </div>
+
+    </section>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+
+</html>

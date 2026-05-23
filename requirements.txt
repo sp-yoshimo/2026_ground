@@ -1,0 +1,8 @@
+fastapi
+uvicorn[standard]
+jinja2
+numpy
+opencv-python
+ultralytics
+huggingface_hub
+llama-cpp-python
